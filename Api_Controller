@@ -1,0 +1,24 @@
+public function LocationApi()
+{
+    $client = new Client();
+    $response = $client->get('API_KEY');
+   return $response;
+}
+    public function Country()
+    {
+        $instance=new self();
+        $response= $instance->LocationApi();
+        $countries = json_decode($response->getBody(), true);
+      $result = array();
+ foreach ($countries as $country) {
+            $countryName = $country['name']['common'];
+            $countryCode = $country['cca3'];
+              $result[] = array(
+                     'country' => $countryName,
+                     'country_code' => $countryCode
+                );
+            
+        }
+
+        return $result;
+    }
