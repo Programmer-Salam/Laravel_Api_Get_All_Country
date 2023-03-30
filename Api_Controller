@@ -1,3 +1,5 @@
+use Guzzle\Http\Client;
+
 public function LocationApi()
 {
     $client = new Client();
@@ -22,3 +24,4 @@ public function LocationApi()
 
         return $result;
     }
+Get your Api Key From RestCountries.com
